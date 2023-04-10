@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Path
 from typing import Optional
 from random import sample
+import uvicorn
 import sqlite3
 
 app = FastAPI()
@@ -63,3 +64,5 @@ def words(category: str, count: Optional[int] = None):
         words_dict[i]= {'pl_word':v[0], 'en_word':v[1]}
     return words_dict
 
+if __name__ == "__main__":
+    uvicorn.run('main:app', host="0.0.0.0", port=4040)
