@@ -32,7 +32,7 @@ def categories():
 
 #! Endpoint that returns number of words from certain category
 @app.get('/words/{category}')
-def words(category: str = Path(None, description="Specify words category"), count: Optional[int] = None):
+def words(category: str, count: Optional[int] = None):
     # Get the id scope
     ids_query = f'SELECT id FROM words WHERE category = \'{category}\';'
     res_ids_query = query_db(ids_query)
