@@ -7,7 +7,7 @@ app = FastAPI()
 
 def query_db(query_str: str) -> tuple:
     try:
-        with sqlite3.connect('./cleaned_db.sqlite') as con:
+        with sqlite3.connect('./db.sqlite') as con:
             cur = con.cursor()
     except sqlite3.Error:
         return None
